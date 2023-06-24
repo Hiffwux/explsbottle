@@ -1,0 +1,154 @@
+---- Minecraft Crash Report ----
+// Don't be sad, have a hug! <3
+
+Time: 2023-06-20 21:04:32
+Description: Unexpected error
+
+java.lang.NullPointerException: Cannot invoke "net.minecraft.client.render.entity.EntityRenderer.shouldRender(net.minecraft.entity.Entity, net.minecraft.client.render.Frustum, double, double, double)" because "entityRenderer" is null
+	at net.minecraft.client.render.entity.EntityRenderDispatcher.shouldRender(EntityRenderDispatcher.java:131)
+	at net.minecraft.client.render.WorldRenderer.render(WorldRenderer.java:1288)
+	at net.minecraft.client.render.GameRenderer.renderWorld(GameRenderer.java:1110)
+	at net.minecraft.client.render.GameRenderer.render(GameRenderer.java:880)
+	at net.minecraft.client.MinecraftClient.render(MinecraftClient.java:1219)
+	at net.minecraft.client.MinecraftClient.run(MinecraftClient.java:802)
+	at net.minecraft.client.main.Main.main(Main.java:250)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:468)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at net.minecraft.client.render.entity.EntityRenderDispatcher.shouldRender(EntityRenderDispatcher.java:131)
+	at net.minecraft.client.render.WorldRenderer.render(WorldRenderer.java:1288)
+	at net.minecraft.client.render.GameRenderer.renderWorld(GameRenderer.java:1110)
+
+-- Affected level --
+Details:
+	All players: 1 total; [ClientPlayerEntity['Player555'/190, l='ClientLevel', x=-207.00, y=4.51, z=-18.15]]
+	Chunk stats: 961, 513
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,0,0), Section: (at 0,0,0 in 0,0,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Level time: 19581 game time, 19581 day time
+	Server brand: fabric
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.world.ClientWorld.addDetailsToCrashReport(ClientWorld.java:458)
+	at net.minecraft.client.MinecraftClient.addDetailsToCrashReport(MinecraftClient.java:2406)
+	at net.minecraft.client.MinecraftClient.run(MinecraftClient.java:826)
+	at net.minecraft.client.main.Main.main(Main.java:250)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:468)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86)
+
+-- Last reload --
+Details:
+	Reload number: 1
+	Reload reason: initial
+	Finished: Yes
+	Packs: vanilla, fabric
+
+-- System Details --
+Details:
+	Minecraft Version: 1.20.1
+	Minecraft Version ID: 1.20.1
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.7, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 283731704 bytes (270 MiB) / 1318060032 bytes (1257 MiB) up to 1579155456 bytes (1506 MiB)
+	CPUs: 8
+	Processor Vendor: AuthenticAMD
+	Processor Name: AMD Ryzen 5 3500U with Radeon Vega Mobile Gfx  
+	Identifier: AuthenticAMD Family 23 Model 24 Stepping 1
+	Microarchitecture: Zen / Zen+
+	Frequency (GHz): 2.10
+	Number of physical packages: 1
+	Number of physical CPUs: 4
+	Number of logical CPUs: 8
+	Graphics card #0 name: AMD Radeon(TM) Vega 8 Graphics
+	Graphics card #0 vendor: Advanced Micro Devices, Inc. (0x1002)
+	Graphics card #0 VRAM (MB): 2048.00
+	Graphics card #0 deviceId: 0x15d8
+	Graphics card #0 versionInfo: DriverVersion=27.20.11028.10001
+	Memory slot #0 capacity (MB): 4096.00
+	Memory slot #0 clockSpeed (GHz): 2.40
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MB): 4096.00
+	Memory slot #1 clockSpeed (GHz): 2.40
+	Memory slot #1 type: DDR4
+	Virtual memory max (MB): 15748.26
+	Virtual memory used (MB): 11074.82
+	Swap memory total (MB): 9728.00
+	Swap memory used (MB): 1408.14
+	JVM Flags: 0 total; 
+	Fabric Mods: 
+		explsbottle: Explosing Bottle 1.0.0
+		fabric-api: Fabric API 0.83.0+1.20.1
+		fabric-api-base: Fabric API Base 0.4.29+b04edc7a82
+		fabric-api-lookup-api-v1: Fabric API Lookup API (v1) 1.6.34+4d8536c982
+		fabric-biome-api-v1: Fabric Biome API (v1) 13.0.10+b3afc78b82
+		fabric-block-api-v1: Fabric Block API (v1) 1.0.9+e022e5d182
+		fabric-blockrenderlayer-v1: Fabric BlockRenderLayer Registration (v1) 1.1.39+b3afc78b82
+		fabric-client-tags-api-v1: Fabric Client Tags 1.0.20+b3afc78b82
+		fabric-command-api-v2: Fabric Command API (v2) 2.2.11+b3afc78b82
+		fabric-content-registries-v0: Fabric Content Registries (v0) 4.0.7+b3afc78b82
+		fabric-convention-tags-v1: Fabric Convention Tags 1.5.3+b3afc78b82
+		fabric-crash-report-info-v1: Fabric Crash Report Info (v1) 0.2.18+aeb40ebe82
+		fabric-data-generation-api-v1: Fabric Data Generation API (v1) 12.1.10+b3afc78b82
+		fabric-dimensions-v1: Fabric Dimensions API (v1) 2.1.51+b3afc78b82
+		fabric-entity-events-v1: Fabric Entity Events (v1) 1.5.21+b3afc78b82
+		fabric-events-interaction-v0: Fabric Events Interaction (v0) 0.6.0+b3afc78b82
+		fabric-game-rule-api-v1: Fabric Game Rule API (v1) 1.0.38+b04edc7a82
+		fabric-gametest-api-v1: Fabric Game Test API (v1) 1.2.10+b3afc78b82
+		fabric-item-api-v1: Fabric Item API (v1) 2.1.26+b3afc78b82
+		fabric-item-group-api-v1: Fabric Item Group API (v1) 4.0.7+b3afc78b82
+		fabric-key-binding-api-v1: Fabric Key Binding API (v1) 1.0.36+fb8d95da82
+		fabric-lifecycle-events-v1: Fabric Lifecycle Events (v1) 2.2.20+b3afc78b82
+		fabric-loot-api-v2: Fabric Loot API (v2) 1.1.37+b3afc78b82
+		fabric-message-api-v1: Fabric Message API (v1) 5.1.6+b3afc78b82
+		fabric-mining-level-api-v1: Fabric Mining Level API (v1) 2.1.47+b3afc78b82
+		fabric-models-v0: Fabric Models (v0) 0.3.35+b3afc78b82
+		fabric-networking-api-v1: Fabric Networking API (v1) 1.3.8+b3afc78b82
+		fabric-object-builder-api-v1: Fabric Object Builder API (v1) 11.0.6+b3afc78b82
+		fabric-particles-v1: Fabric Particles (v1) 1.0.28+b3afc78b82
+		fabric-recipe-api-v1: Fabric Recipe API (v1) 1.0.18+b3afc78b82
+		fabric-registry-sync-v0: Fabric Registry Sync (v0) 2.2.6+b3afc78b82
+		fabric-renderer-api-v1: Fabric Renderer API (v1) 3.0.1+b3afc78b82
+		fabric-renderer-indigo: Fabric Renderer - Indigo 1.3.1+b3afc78b82
+		fabric-rendering-data-attachment-v1: Fabric Rendering Data Attachment (v1) 0.3.33+b3afc78b82
+		fabric-rendering-fluids-v1: Fabric Rendering Fluids (v1) 3.0.26+b3afc78b82
+		fabric-rendering-v1: Fabric Rendering (v1) 3.0.6+b3afc78b82
+		fabric-resource-conditions-api-v1: Fabric Resource Conditions API (v1) 2.3.4+b3afc78b82
+		fabric-resource-loader-v0: Fabric Resource Loader (v0) 0.11.7+f7923f6d82
+		fabric-screen-api-v1: Fabric Screen API (v1) 2.0.6+b3afc78b82
+		fabric-screen-handler-api-v1: Fabric Screen Handler API (v1) 1.3.27+b3afc78b82
+		fabric-sound-api-v1: Fabric Sound API (v1) 1.0.12+b3afc78b82
+		fabric-transfer-api-v1: Fabric Transfer API (v1) 3.2.2+b3afc78b82
+		fabric-transitive-access-wideners-v1: Fabric Transitive Access Wideners (v1) 4.2.0+b3afc78b82
+		fabricloader: Fabric Loader 0.14.21
+		java: OpenJDK 64-Bit Server VM 17
+		minecraft: Minecraft 1.20.1
+	Launched Version: Fabric
+	Backend library: LWJGL version 3.3.1 SNAPSHOT
+	Backend API: AMD Radeon(TM) Vega 8 Graphics  GL version 3.2.13596 Core Profile Forward-Compatible Context 20.10.28.10 27.20.11028.10001, ATI Technologies Inc.
+	Window size: 854x480
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages: 
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fabric'; Server brand changed to 'fabric'
+	Type: Integrated Server (map_client.txt)
+	Graphics mode: fancy
+	Resource Packs: fabric
+	Current Language: en_us
+	CPU: 8x AMD Ryzen 5 3500U with Radeon Vega Mobile Gfx 
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayerEntity['Player555'/190, l='ServerLevel[New World]', x=-207.00, y=4.51, z=-18.15]]
+	Data Packs: vanilla, fabric
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable

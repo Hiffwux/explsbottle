@@ -1,0 +1,25 @@
+{
+  "type" : "minecraft:crafting_shaped",
+  "pattern" : [
+    "CBP"
+  ],
+  "key" : {
+    "C": [
+      {
+        "item": "minecraft:charcoal"
+      },
+      {
+        "item": "minecraft:coal"
+      }
+    ],
+    "P": {
+      "item": "minecraft:gunpowder"
+    },
+    "B": {
+      "item": "minecraft:glass_bottle"
+    }
+  },
+  "result": {
+    "item": "explsbottle:exploding_bottle"
+  }
+}

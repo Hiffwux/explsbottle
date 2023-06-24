@@ -1,0 +1,25 @@
+{
+  "type" : "minecraft:crafting_shaped",
+  "pattern" : [
+    "FBP"
+  ],
+  "key" : {
+    "F": [
+      {
+        "item": "minecraft:rotten_flesh"
+      },
+      {
+        "item": "minecraft:spider_eye"
+      }
+    ],
+    "P": {
+      "item": "minecraft:gunpowder"
+    },
+    "B": {
+      "item": "minecraft:glass_bottle"
+    }
+  },
+  "result": {
+    "item": "explsbottle:poison_bottle"
+  }
+}

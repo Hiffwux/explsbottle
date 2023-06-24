@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "explsbottle",
+	"version": "${version}",
+	"name": "Explosing Bottle",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/explsbottle/textures/item/exploding_bottle.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.wuxhiff.explsbottle.ExplsBottle"
+		],
+		"client": [
+			"net.wuxhiff.explsbottle.ExplsBottleClient"
+		]
+	},
+	"mixins": [
+		"explsbottle.mixins.json",
+		{
+			"config": "explsbottle.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.14.14",
+		"minecraft": "~1.19.2",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
