@@ -48,7 +48,6 @@ public class PoisonBottleEntity extends ThrownItemEntity {
 
     private void poisonDamaging(Box box){
         List<Entity> hits = this.getWorld().getEntitiesByType(TypeFilter.instanceOf(Entity.class),box, entity -> true);
-        //List<LivingEntity> list = this.getWorld().getEntitiesByClass(LivingEntity.class, box, livingEntity -> true);
         for (Entity entity : hits) {
             double d = this.squaredDistanceTo(entity);
             if (!(d < 16.0)) continue;
@@ -56,22 +55,10 @@ public class PoisonBottleEntity extends ThrownItemEntity {
                 if (livingEntity.canTakeDamage()) {
                     livingEntity.addStatusEffect((new StatusEffectInstance(StatusEffects.SLOWNESS, 100 * 3, 3))); // applies a status effect
                     livingEntity.addStatusEffect((new StatusEffectInstance(StatusEffects.POISON, 100 * 3, 3)));
-                    //livingEntity.addStatusEffect((new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 20)));
-                    //livingEntity.addStatusEffect((new StatusEffectInstance(StatusEffects.INSTANT_HEALTH)));
-                   // livingEntity.addStatusEffect((new StatusEffectInstance(StatusEffects.LEVITATION, 20)));
 
-                    //livingEntity.setVelocity(entity.getVelocity().add(0, 2, 0 ));
                 }
             }
-            /*if (entity instanceof PlayerEntity playerEntity){
-                if (!playerEntity.isSpectator() && (!playerEntity.isCreative() || !playerEntity.getAbilities().flying)) {
-                    //playerEntity.setVelocity(playerEntity.getVelocity().add(0, 2,0));
-                    //playerEntity.addStatusEffect((new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 20, 10)));
-                    //playerEntity.addStatusEffect((new StatusEffectInstance(StatusEffects.INSTANT_HEALTH)));
-                    //playerEntity.addStatusEffect((new StatusEffectInstance(StatusEffects.LEVITATION, 20)));
 
-                }
-            }*/
         }
     }
 
@@ -80,14 +67,11 @@ public class PoisonBottleEntity extends ThrownItemEntity {
         super.onEntityHit(entityHitResult);
         Box box = this.getBoundingBox().expand(5.0, 5.0, 5.0);
         Entity entity = entityHitResult.getEntity();
-        int i = entity instanceof BlazeEntity ? 3 : 0;
-        entity.damage(DamageSource.thrownProjectile(this,this.getOwner()), i);
+        entity.damage(DamageSource.thrownProjectile(this,this.getOwner()), 3);
         if (entity instanceof LivingEntity livingEntity) { // checks if entity is an instance of LivingEntity (meaning it is not a boat or minecart)
             livingEntity.addStatusEffect((new StatusEffectInstance(StatusEffects.NAUSEA, 60 * 3, 3))); // applies a status effect
-            //livingEntity.addStatusEffect((new StatusEffectInstance(StatusEffects.SLOWNESS, 60 * 3, 2))); // applies a status effect
-            //livingEntity.addStatusEffect((new StatusEffectInstance(StatusEffects.POISON, 60 * 3, 2)));
         }
-        poisonDamaging(box);
+        //poisonDamaging(box);
     }
 
     @Override
@@ -110,12 +94,9 @@ public class PoisonBottleEntity extends ThrownItemEntity {
     protected void onCollision(HitResult hitResult) {
         super.onCollision(hitResult);
         Box box = this.getBoundingBox().expand(5.0, 5.0, 5.0);
-        //List<Entity> hits = this.getWorld().getEntitiesByType(TypeFilter.instanceOf(Entity.class),box, entity -> true);
-        //this.getWorld().createExplosion(this, hitResult.getPos().x, hitResult.getPos().y, hitResult.getPos().z, 1.25F, false, World.ExplosionSourceType.BLOCK);
         if (!this.getWorld().isClient) {
             poisonDamaging(box);
-            this.getWorld().createExplosion(this, hitResult.getPos().x, hitResult.getPos().y + 1, hitResult.getPos().z, 0.4F, false, Explosion.DestructionType.BREAK);
-            //safeExpls(this.getWorld(),this, hitResult.getPos().x, hitResult.getPos().y + 1, hitResult.getPos().z, 0.5F, false, Explosion.DestructionType.BREAK);
+            this.getWorld().createExplosion(this, hitResult.getPos().x, hitResult.getPos().y + 0.5, hitResult.getPos().z, 0.65F, false, Explosion.DestructionType.BREAK);
             this.getWorld().sendEntityStatus(this, EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES);
             this.discard();
         }

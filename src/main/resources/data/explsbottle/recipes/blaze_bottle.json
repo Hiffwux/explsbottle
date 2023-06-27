@@ -1,0 +1,21 @@
+{
+  "type" : "minecraft:crafting_shapeless",
+  "pattern" : [
+    "ERF"
+  ],
+  "key" : {
+    "E":
+      {
+        "item": "explsbottle:exploding_bottle"
+      },
+    "F": {
+      "item": "explsbottle:fire_bottle"
+    },
+    "R": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "result": {
+    "item": "explsbottle:blaze_bottle"
+  }
+}

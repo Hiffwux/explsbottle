@@ -1,17 +1,18 @@
 {
 	"schemaVersion": 1,
 	"id": "explsbottle",
-	"version": "2.0.0",
-	"name": "Explosing Bottle",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"version": "1.1.1",
+	"name": "Explosive Bottles",
+	"description": "Сalm down your inner bomber",
 	"authors": [
-		"Me!"
+		"Wuxhiff",
+		"VasFerd"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://steamcommunity.com/id/wuxhiff/",
+		"sources": "https://github.com/Hiffwux/explsbottle"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/explsbottle/textures/item/exploding_bottle.png",
 	"environment": "*",
 	"entrypoints": {

@@ -1,5 +1,8 @@
 {
-  "item.explsbottle.exploding_bottle" : "Exploding Bottle",
-  "item.explsbottle.poison_bottle" : "Poison Bottle",
-  "item.explsbottle.fire_bottle" : "Fire Bottle"
+  "item.explsbottle.exploding_bottle" : "Explosive bottle",
+  "item.explsbottle.poison_bottle" : "Poison bottle",
+  "item.explsbottle.fire_bottle" : "Fire bottle",
+  "item.explsbottle.fly_bottle" : "Push bottle",
+  "item.explsbottle.blaze_bottle" : "Blaze bottle",
+  "item.explsbottle.hot_potato" : "'Hot' potato"
 }

@@ -1,0 +1,19 @@
+{
+  "type" : "minecraft:crafting_shaped",
+  "pattern" : [
+    "Pp"
+  ],
+  "key" : {
+    "P": {
+      "item": "minecraft:gunpowder"
+    },
+    "p": {
+      "item": "minecraft:potato",
+      "count": 4
+    }
+  },
+  "result": {
+    "item": "explsbottle:hot_potato",
+    "count": 4
+  }
+}

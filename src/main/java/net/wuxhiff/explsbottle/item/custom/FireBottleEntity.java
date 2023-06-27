@@ -23,6 +23,7 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import net.wuxhiff.explsbottle.item.ExplsBottleItems;
@@ -53,7 +54,7 @@ public class FireBottleEntity extends ThrownItemEntity {
     }
 
     private void fireDamaging(Box box){
-        //world.setBlockState(blockPos, (BlockState)blockState.with(Properties.LIT, true), 11);
+
         List<LivingEntity> list = this.getWorld().getEntitiesByClass(LivingEntity.class, box, livingEntity -> true);
         for (LivingEntity livingEntity : list) {
             double d = this.squaredDistanceTo(livingEntity);
@@ -61,7 +62,7 @@ public class FireBottleEntity extends ThrownItemEntity {
             if (livingEntity.canTakeDamage()) {
                 livingEntity.setOnFireFor(10);
                 livingEntity.addStatusEffect((new StatusEffectInstance(StatusEffects.SLOWNESS, 75 * 3, 2))); // applies a status effect
-                //livingEntity.addStatusEffect((new StatusEffectInstance(StatusEffects.POISON, 100 * 3, 3)));
+
             }
         }
 
@@ -72,14 +73,13 @@ public class FireBottleEntity extends ThrownItemEntity {
         super.onEntityHit(entityHitResult);
         Box box = this.getBoundingBox().expand(5.0, 5.0, 5.0);
         Entity entity = entityHitResult.getEntity();
-        int i = entity instanceof BlazeEntity ? 3 : 0;
+        int i = entity instanceof BlazeEntity ? 0 : 2;
         entity.damage(DamageSource.thrownProjectile(this,this.getOwner()), i);
         if (entity instanceof LivingEntity livingEntity) { // checks if entity is an instance of LivingEntity (meaning it is not a boat or minecart)
             //livingEntity.addStatusEffect((new StatusEffectInstance(StatusEffects.BLINDNESS, 30 * 3, 3))); // applies a status effect
             livingEntity.addStatusEffect((new StatusEffectInstance(StatusEffects.BLINDNESS, 75 * 3, 2))); // applies a status effect
             //livingEntity.addStatusEffect((new StatusEffectInstance(StatusEffects.POISON, 60 * 3, 2)));
         }
-        fireDamaging(box);
     }
 
     @Override
@@ -92,11 +92,6 @@ public class FireBottleEntity extends ThrownItemEntity {
         }
     }
 
-/*    @Override
-    protected void onBlockHit(BlockHitResult blockHitResult) {
-        this.getWorld().setBlockState(blockHitResult.getBlockPos(), this.getWorld().getBlockState(blockHitResult.getBlockPos()).with(Properties.LIT, true), 11);
-    }*/
-
 
     @Override
     protected void onCollision(HitResult hitResult) {
@@ -104,7 +99,7 @@ public class FireBottleEntity extends ThrownItemEntity {
         Box box = this.getBoundingBox().expand(5.0, 5.0, 5.0);
         //this.getWorld().createExplosion(this, hitResult.getPos().x, hitResult.getPos().y, hitResult.getPos().z, 1.25F, false, World.ExplosionSourceType.BLOCK);
         if (!this.getWorld().isClient) {
-            this.getWorld().createExplosion(this, hitResult.getPos().x, hitResult.getPos().y, hitResult.getPos().z, 0.65F, true, Explosion.DestructionType.BREAK);
+            this.getWorld().createExplosion(this, hitResult.getPos().x, hitResult.getPos().y + 0.375, hitResult.getPos().z, 0.65F, true, Explosion.DestructionType.BREAK);
             fireDamaging(box);
             this.getWorld().sendEntityStatus(this, EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES);
             this.discard();

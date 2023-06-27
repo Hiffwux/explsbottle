@@ -1,0 +1,26 @@
+{
+  "type" : "minecraft:crafting_shaped",
+  "pattern" : [
+    "FBP"
+  ],
+  "key" : {
+    "F": [
+      {
+        "item": "minecraft:feather"
+      },
+      {
+        "item": "minecraft:ender_pearl"
+      }
+    ],
+    "P": {
+      "item": "minecraft:gunpowder"
+    },
+    "B": {
+      "item": "minecraft:glass_bottle"
+    }
+  },
+  "result": {
+    "item": "explsbottle:fly_bottle",
+    "count": 2
+  }
+}
